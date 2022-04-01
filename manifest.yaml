@@ -1,5 +1,5 @@
 id: loop 
-title: "Lightning Loop"
+title: "Loop"
 version: 0.18.0
 release-notes: "Upgrade to EmbassyOS v0.3.0"
 license: mit
@@ -23,53 +23,34 @@ main:
   entrypoint: "docker_entrypoint.sh"
   args: []
   mounts:
+    lnd: /mnt/lnd
     main: /root
-health-checks:
-  main:
-    name: Loop API
-    success-message: The Loop API is accessible and responding
-    type: docker
-    image: main
-    entrypoint: "check-web.sh"
-    args: []
-    inject: true
-    system: false
-    io-format: json
-config:
-  get:
-    type: docker
-    image: compat
-    system: true
-    entrypoint: compat
-    args:
-      - config
-      - get
-      - /root
-      - "/mnt/assets/config_spec.yaml"
-    mounts:
-      compat: /mnt/assets
-      main: /root
-    io-format: yaml
-  set:
-    type: docker
-    image: compat
-    system: true
-    entrypoint: compat
-    args:
-      - config
-      - set
-      - loop
-      - /root
-      - "/mnt/assets/config_rules.yaml"
-    mounts:
-      compat: /mnt/assets
-      main: /root
-    io-format: yaml
+  io-format: yaml
+health-checks: {}
+  # main:
+  #   name: Loop API
+  #   success-message: The Loop API is accessible and responding
+  #   type: docker
+  #   image: main
+  #   entrypoint: "check-web.sh"
+  #   args: []
+  #   inject: true
+  #   system: false
+  #   io-format: json
+config: ~
 volumes:
   main:
     type: data
   compat:
-    type: assets 
+    type: assets
+  utils:
+    type: assets
+  lnd:
+    type: pointer
+    package-id: lnd
+    volume-id: main
+    path: "/public"
+    readonly: true
 interfaces:
   main:
     name: Network Interface
@@ -87,11 +68,10 @@ interfaces:
       - http
 dependencies:
   lnd:
-    version: ">=0.13.3.1 <0.15.0"
-    requirement:
-      type: "opt-in"
-      how: Optionally use LND for internal lightning network node implementation.
+    version: ">=0.14.2 <0.15.0"
     description: Used to communicate with the Lightning Network.
+    requirement:
+      type: required
     config: ~
 backup:
   create:
