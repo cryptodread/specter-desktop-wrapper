@@ -2,19 +2,18 @@
 
 _term() { 
   echo "Caught SIGTERM signal!" 
-  kill -TERM "$loop_process" 2>/dev/null
+  kill -TERM "$lightning_terminal_process" 2>/dev/null
 }
 
 echo -e "Starting Entrypoint..."
 
-LND_ADDRESS="lnd.embassy"
-LND_TLSPATH="/mnt/"
-echo "Starting Loop..."
-/go/bin/loopd --lnd.host=$LND_ADDRESS --lnd.tlspath=/mnt/lnd/tls.cert --lnd.macaroonpath=/mnt/lnd/admin.macaroon
 
-#tini -sp SIGTERM -- loopd --lnd.host=$LND_ADDRESS &
-#loop_process=$1
+echo "Starting lightning-terminal..."
+./litd --uipassword=testing
+
+#tini -sp SIGTERM -- lightning-terminald --lnd.host=$LND_ADDRESS &
+#lightning_terminal_process=$1
 
 trap _term SIGTERM
 
-wait -n $loop_process
+wait -n $lightning_terminal_process

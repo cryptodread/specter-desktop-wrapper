@@ -1,18 +1,17 @@
-id: loop 
-title: "Loop"
-version: 0.18.0
+id: lightning-terminal 
+title: "Lightning Terminal"
+version: 0.6.5
 release-notes: "Upgrade to EmbassyOS v0.3.0"
 license: mit
-wrapper-repo: "https://github.com/Start9Labs/loop-wrapper"
-upstream-repo: "https://github.com/lightninglabs/loop"
-support-site: "https://github.com/lightninglabs/loop/issues"
+wrapper-repo: "https://github.com/Start9Labs/lightning-terminal-wrapper"
+upstream-repo: "https://github.com/lightninglabs/lightning-terminal"
+support-site: "https://github.com/lightninglabs/lightning-terminal/issues"
 marketing-site: "https://lightning.engineering/"
 build: ["make"]
 description:
-  short: Lightning Loop - A Non-Custodial Off/On Chain Bridge 
+  short: ightning Terminal - Your Home for Lightning Liquidity
   long: |
-    Lightning Loop is a non-custodial service offered by Lightning Labs that makes it easy to move bitcoin into and out of the Lightning Network.
-assets:
+    Lightning Terminal (LiT) is a browser-based interface for managing channel liquidity.
   license: LICENSE
   icon: icon.png
   instructions: docs/instructions.md
@@ -27,16 +26,16 @@ main:
     main: /root
   io-format: yaml
 health-checks: {}
-  # main:
-  #   name: Loop API
-  #   success-message: The Loop API is accessible and responding
-  #   type: docker
-  #   image: main
-  #   entrypoint: "check-web.sh"
-  #   args: []
-  #   inject: true
-  #   system: false
-  #   io-format: json
+  main:
+    name: Lightning Terminal API
+    success-message: The Lightning Terminal API is accessible and responding
+    type: docker
+    image: main
+    entrypoint: "check-web.sh"
+    args: []
+    inject: true
+    system: false
+    io-format: json
 config: ~
 volumes:
   main:
@@ -57,18 +56,18 @@ interfaces:
     description: Specifies the interface to listen on for HTTP connections.
     tor-config:
       port-mapping:
-        80: "80"
+        80: "8443"
     lan-config:
       443:
         ssl: true
-        internal: 80
-    ui: false
+        internal: 8443
+    ui: true
     protocols:
       - tcp
       - http
 dependencies:
   lnd:
-    version: ">=0.14.2 <0.15.0"
+    version: ">=0.13.3 <0.15.0"
     description: Used to communicate with the Lightning Network.
     requirement:
       type: required
@@ -100,18 +99,3 @@ backup:
     mounts:
       BACKUP: "/mnt/backup"
       main: "/root/data"
-actions:
-  loop-action:
-    name: Loop Action
-    description: A description that describes what the action will accomplish.
-    warning: |
-      A warning message indicating and potential dangers associated with the action
-    allowed-statuses:
-      - running
-    implementation:
-      type: docker
-      image: main
-      entrypoint: sh
-      args: ["-c", "echo 'loop'"]
-      inject: true
-      io-format: json

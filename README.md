@@ -1,6 +1,6 @@
-# Wrapper for Loop
+# Wrapper for Lightning Terminal
 
-`Loop` is a simple, minimal project to serve as a template for creating an app for the Embassy.
+`Lightning Terminal` is a simple, minimal project to serve as a template for creating an app for the Embassy.
 
 ## Dependencies
 
@@ -59,8 +59,8 @@ cd embassy-os/backend/
 Clone the project locally. Note the submodule link to the original project(s). 
 
 ```
-git clone https://github.com/Start9Labs/loop-wrapper.git
-cd loop-wrapper
+git clone https://github.com/Start9Labs/lightning-terminal-wrapper.git
+cd lightning-terminal-wrapper
 git submodule update --init --recursive
 ```
 ## Building
@@ -80,10 +80,10 @@ Run the following command to install the package:
 ```
 embassy-cli auth login
 #Enter your embassy password then run:
-embassy-cli package install /path/to/loop.s9pk
+embassy-cli package install /path/to/lightning-terminal.s9pk
 ```
 ## Verify Install
 
-Go to your Embassy Services page, select Loop and start the service.
+Go to your Embassy Services page, select lightning-terminal and start the service.
 
 #Done
