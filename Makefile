@@ -19,5 +19,4 @@ lightning-terminal.s9pk: manifest.yaml assets/compat/* image.tar docs/instructio
 	embassy-sdk pack
 
 image.tar: Dockerfile docker_entrypoint.sh assets/utils/*
-	docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
 	DOCKER_CLI_EXPERIMENTAL=enabled docker buildx build --tag start9/lightning-terminal/main:$(VERSION) --platform=linux/arm64/v8 -o type=docker,dest=image.tar -f ./Dockerfile .
