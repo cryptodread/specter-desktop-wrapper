@@ -5,7 +5,7 @@
 #   description: The Tor address for the network interface. 
 #   type: pointer
 #   subtype: package
-#   package-id: lightning-terminal
+#   package-id: specter-desktop
 #   target: tor-address
 #   interface: main
 # lan-address:
@@ -13,13 +13,27 @@
 #   description: The LAN address for the network interface. 
 #   type: pointer
 #   subtype: package
-#   package-id: lightning-terminal
+#   package-id: specter-desktop
 #   target: lan-address
 #   interface: main
+specter-desktop:
+  type: union
+  name: Specter Desktop Mode
+  description: Server or Bitcoin Core mode for Specter Desktop
+  tag:
+    id: mode
+    name: Type
+    description: |
+      - server: Server Mode
+      - bitcoind: Bitcoin Core API Mode
+    variant-names:
+      server: Server
+      bitcoind: Bitcoin Core
+  default: server
 password:
   type: string
-  name: Lightning Terminal Password
-  description: Administrator password for Lightning Terminal
+  name: Specter Desktop Password
+  description: Administrator password for Specter Desktop
   nullable: false
   copyable: true
   masked: true
@@ -64,18 +78,18 @@ bitcoind:
       user:
         type: pointer
         name: RPC Username
-        description: The username for the RPC user allocated to Lightning Terminal
+        description: The username for the RPC user allocated to Specter Desktop
         subtype: package
         package-id: btc-rpc-proxy
         target: config
         multi: false
-        selector: '$.users.[?(@.name == "lightning-terminal")].name'
+        selector: '$.users.[?(@.name == "specter-desktop")].name'
       password:
         type: pointer
         name: RPC Password
-        description: The password for the RPC user allocated to Lightning Terminal
+        description: The password for the RPC user allocated to Specter Desktop
         subtype: package
         package-id: btc-rpc-proxy
         target: config
         multi: false
-        selector: '$.users.[?(@.name == "lightning-terminal")].password'
+        selector: '$.users.[?(@.name == "specter-desktop")].password'

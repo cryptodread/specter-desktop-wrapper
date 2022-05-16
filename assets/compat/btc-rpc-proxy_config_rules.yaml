@@ -1,85 +1,85 @@
-- rule: '''users.*.name = "lightning-terminal"'
-  description: 'Must have an RPC user named "lightning-terminal"'
+- rule: '''users.*.name = "specter-desktop"'
+  description: 'Must have an RPC user named "specter-desktop"'
   suggestions:
     - PUSH:
         to: "users"
         value:
-          name: lightning-terminal
+          name: specter-desktop
           allowed-calls: []
     - SET:
-        var: 'users.[first(item => ''item.name = "lightning-terminal")].password'
+        var: 'users.[first(item => ''item.name = "specter-desktop")].password'
         to-entropy:
           charset: "a-z,A-Z,0-9"
           len: 22
-- rule: '''users.[first(item => ''item.name = "lightning-terminal")].allowed-calls.* = "getindexinfo"'
-  description: 'RPC user "lightning-terminal" must have "getindexinfo" enabled'
+- rule: '''users.[first(item => ''item.name = "specter-desktop")].allowed-calls.* = "getindexinfo"'
+  description: 'RPC user "specter-desktop" must have "getindexinfo" enabled'
   suggestions:
     - PUSH:
-        to: 'users.[first(item => ''item.name = "lightning-terminal")].allowed-calls'
+        to: 'users.[first(item => ''item.name = "specter-desktop")].allowed-calls'
         value: "getindexinfo"
-- rule: '''users.[first(item => ''item.name = "lightning-terminal")].allowed-calls.* = "getblockcount"'
-  description: 'RPC user "lightning-terminal" must have "getblockcount" enabled'
+- rule: '''users.[first(item => ''item.name = "specter-desktop")].allowed-calls.* = "getblockcount"'
+  description: 'RPC user "specter-desktop" must have "getblockcount" enabled'
   suggestions:
     - PUSH:
-        to: 'users.[first(item => ''item.name = "lightning-terminal")].allowed-calls'
+        to: 'users.[first(item => ''item.name = "specter-desktop")].allowed-calls'
         value: "getblockcount"
-- rule: '''users.[first(item => ''item.name = "lightning-terminal")].allowed-calls.* = "getchaintips"'
-  description: 'RPC user "lightning-terminal" must have "getchaintips" enabled'
+- rule: '''users.[first(item => ''item.name = "specter-desktop")].allowed-calls.* = "getchaintips"'
+  description: 'RPC user "specter-desktop" must have "getchaintips" enabled'
   suggestions:
     - PUSH:
-        to: 'users.[first(item => ''item.name = "lightning-terminal")].allowed-calls'
+        to: 'users.[first(item => ''item.name = "specter-desktop")].allowed-calls'
         value: "getchaintips"
-- rule: '''users.[first(item => ''item.name = "lightning-terminal")].allowed-calls.* = "getmempoolinfo"'
-  description: 'RPC user "lightning-terminal" must have "getmempoolinfo" enabled'
+- rule: '''users.[first(item => ''item.name = "specter-desktop")].allowed-calls.* = "getmempoolinfo"'
+  description: 'RPC user "specter-desktop" must have "getmempoolinfo" enabled'
   suggestions:
     - PUSH:
-        to: 'users.[first(item => ''item.name = "lightning-terminal")].allowed-calls'
+        to: 'users.[first(item => ''item.name = "specter-desktop")].allowed-calls'
         value: "getmempoolinfo"
-- rule: '''users.[first(item => ''item.name = "lightning-terminal")].allowed-calls.* = "getblockchaininfo"'
-  description: 'RPC user "lightning-terminal" must have "getblockchaininfo" enabled'
+- rule: '''users.[first(item => ''item.name = "specter-desktop")].allowed-calls.* = "getblockchaininfo"'
+  description: 'RPC user "specter-desktop" must have "getblockchaininfo" enabled'
   suggestions:
     - PUSH:
-        to: 'users.[first(item => ''item.name = "lightning-terminal")].allowed-calls'
+        to: 'users.[first(item => ''item.name = "specter-desktop")].allowed-calls'
         value: "getblockchaininfo"
-- rule: '''users.[first(item => ''item.name = "lightning-terminal")].allowed-calls.* = "getblockhash"'
-  description: 'RPC user "lightning-terminal" must have "getblockhash" enabled'
+- rule: '''users.[first(item => ''item.name = "specter-desktop")].allowed-calls.* = "getblockhash"'
+  description: 'RPC user "specter-desktop" must have "getblockhash" enabled'
   suggestions:
     - PUSH:
-        to: 'users.[first(item => ''item.name = "lightning-terminal")].allowed-calls'
+        to: 'users.[first(item => ''item.name = "specter-desktop")].allowed-calls'
         value: "getblockhash"
-- rule: '''users.[first(item => ''item.name = "lightning-terminal")].allowed-calls.* = "getblock"'
-  description: 'RPC user "lightning-terminal" must have "getblock" enabled'
+- rule: '''users.[first(item => ''item.name = "specter-desktop")].allowed-calls.* = "getblock"'
+  description: 'RPC user "specter-desktop" must have "getblock" enabled'
   suggestions:
     - PUSH:
-        to: 'users.[first(item => ''item.name = "lightning-terminal")].allowed-calls'
+        to: 'users.[first(item => ''item.name = "specter-desktop")].allowed-calls'
         value: "getblock"
-- rule: '''users.[first(item => ''item.name = "lightning-terminal")].allowed-calls.* = "getmempoolentry"'
-  description: 'RPC user "lightning-terminal" must have "getmempoolentry" enabled'
+- rule: '''users.[first(item => ''item.name = "specter-desktop")].allowed-calls.* = "getmempoolentry"'
+  description: 'RPC user "specter-desktop" must have "getmempoolentry" enabled'
   suggestions:
     - PUSH:
-        to: 'users.[first(item => ''item.name = "lightning-terminal")].allowed-calls'
+        to: 'users.[first(item => ''item.name = "specter-desktop")].allowed-calls'
         value: "getmempoolentry"
-- rule: '''users.[first(item => ''item.name = "lightning-terminal")].allowed-calls.* = "getrawtransaction"'
-  description: 'RPC user "lightning-terminal" must have "getrawtransaction" enabled'
+- rule: '''users.[first(item => ''item.name = "specter-desktop")].allowed-calls.* = "getrawtransaction"'
+  description: 'RPC user "specter-desktop" must have "getrawtransaction" enabled'
   suggestions:
     - PUSH:
-        to: 'users.[first(item => ''item.name = "lightning-terminal")].allowed-calls'
+        to: 'users.[first(item => ''item.name = "specter-desktop")].allowed-calls'
         value: "getrawtransaction"
-- rule: '''users.[first(item => ''item.name = "lightning-terminal")].allowed-calls.* = "getrawmempool"'
-  description: 'RPC user "lightning-terminal" must have "getrawmempool" enabled'
+- rule: '''users.[first(item => ''item.name = "specter-desktop")].allowed-calls.* = "getrawmempool"'
+  description: 'RPC user "specter-desktop" must have "getrawmempool" enabled'
   suggestions:
     - PUSH:
-        to: 'users.[first(item => ''item.name = "lightning-terminal")].allowed-calls'
+        to: 'users.[first(item => ''item.name = "specter-desktop")].allowed-calls'
         value: "getrawmempool"
-- rule: '''users.[first(item => ''item.name = "lightning-terminal")].allowed-calls.* = "gettxout"'
-  description: 'RPC user "lightning-terminal" must have "gettxout" enabled'
+- rule: '''users.[first(item => ''item.name = "specter-desktop")].allowed-calls.* = "gettxout"'
+  description: 'RPC user "specter-desktop" must have "gettxout" enabled'
   suggestions:
     - PUSH:
-        to: 'users.[first(item => ''item.name = "lightning-terminal")].allowed-calls'
+        to: 'users.[first(item => ''item.name = "specter-desktop")].allowed-calls'
         value: "gettxout"
-- rule: '''users.[first(item => ''item.name = "lightning-terminal")].allowed-calls.* = "validateaddress"'
-  description: 'RPC user "lightning-terminal" must have "validateaddress" enabled'
+- rule: '''users.[first(item => ''item.name = "specter-desktop")].allowed-calls.* = "validateaddress"'
+  description: 'RPC user "specter-desktop" must have "validateaddress" enabled'
   suggestions:
     - PUSH:
-        to: 'users.[first(item => ''item.name = "lightning-terminal")].allowed-calls'
+        to: 'users.[first(item => ''item.name = "specter-desktop")].allowed-calls'
         value: "validateaddress"

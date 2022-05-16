@@ -1,10 +1,10 @@
-# Wrapper for Lightning Terminal
+# Wrapper for Specter Desktop
 
-`Lightning Terminal (LiT)` is a browser-based interface for managing channel liquidity. This .s9pk wrapper will allow you to run LiT on your Embassy.
+`Specter Desktop` is a desktop GUI for Bitcoin Core optimised to work with hardware wallets . This .s9pk wrapper will allow you to run Specter Desktop on your Embassy.
 
 ## Embassy Service Pre-Requisites: 
 
-- [lnd](https://github.com/Start9Labs/lnd-wrapper)
+- [Bitcoin Core](https://github.com/Start9Labs/bitcoind-wrapper)
 
 ## Dependencies
 
@@ -63,8 +63,8 @@ cd embassy-os/backend/
 Clone the project locally. Note the submodule link to the original project(s). 
 
 ```
-git clone https://github.com/Start9Labs/lightning-terminal-wrapper.git
-cd lightning-terminal-wrapper
+git clone https://github.com/Start9Labs/specter-desktop-wrapper.git
+cd specter-desktop-wrapper
 git submodule update --init --recursive
 ```
 ## Building
@@ -84,10 +84,10 @@ Run the following command to install the package:
 ```
 embassy-cli auth login
 #Enter your embassy password then run:
-embassy-cli package install /path/to/lightning-terminal.s9pk
+embassy-cli package install /path/to/specter-desktop.s9pk
 ```
 ## Verify Install
 
-Go to your Embassy Services page, select lightning-terminal and start the service.
+Go to your Embassy Services page, select specter-desktop and start the service.
 
 #Done
