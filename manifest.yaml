@@ -10,8 +10,7 @@ marketing-site: "https://specter.solutions"
 build: ["make"]
 description:
   short: A desktop GUI for Bitcoin Core optimised to work with hardware wallets 
-  long: A desktop GUI for Bitcoin Core optimised to work with hardware wallets. This software might be ready to be used but at your own risk. 
-  If something doesn't work open an issue here or ask a question in our Telegram group. 
+  long: A desktop GUI for Bitcoin Core optimised to work with hardware wallets. This software might be ready to be used but at your own risk. If something doesn't work open an issue here or ask a question in our Telegram group. 
 assets:
   license: LICENSE
   icon: icon.png
