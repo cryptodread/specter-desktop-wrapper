@@ -24,6 +24,7 @@ main:
   mounts:
     compat: /mnt/assets
     main: /root
+    bitcoind: /mnt/bitcoind
   io-format: yaml
 health-checks:
   main:
@@ -84,6 +85,12 @@ volumes:
     type: assets
   utils:
     type: assets
+  bitcoind:
+    type: pointer
+    package-id: bitcoind
+    volume-id: main
+    path: /public
+    readonly: false
 interfaces:
   main:
     name: Specter Desktop Web Interface

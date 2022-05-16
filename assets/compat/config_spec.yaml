@@ -1,49 +1,9 @@
 # To utilize the default config system built in the compat system image, this file is required. It defines the *structure* of the configuration file. These structured options display as changeable UI elements within the "Config" section of the service details page in the Embassy UI
 
-# tor-address:
-#   name: Network Tor Address
-#   description: The Tor address for the network interface. 
-#   type: pointer
-#   subtype: package
-#   package-id: specter-desktop
-#   target: tor-address
-#   interface: main
-# lan-address:
-#   name: Network LAN Address
-#   description: The LAN address for the network interface. 
-#   type: pointer
-#   subtype: package
-#   package-id: specter-desktop
-#   target: lan-address
-#   interface: main
-specter-desktop:
-  type: union
-  name: Specter Desktop Mode
-  description: Server or Bitcoin Core mode for Specter Desktop
-  tag:
-    id: mode
-    name: Type
-    description: |
-      - server: Server Mode
-      - bitcoind: Bitcoin Core API Mode
-    variant-names:
-      server: Server
-      bitcoind: Bitcoin Core
-  default: server
-password:
-  type: string
-  name: Specter Desktop Password
-  description: Administrator password for Specter Desktop
-  nullable: false
-  copyable: true
-  masked: true
-  default:
-    charset: "a-z,A-Z,0-9"
-    len: 22
 bitcoind:
   type: union
-  name: Bitcoin Core RPC for Faraday
-  description: The Bitcoin Core node for Faraday to connect to
+  name: Bitcoin Core
+  description: The Bitcoin Core node for Specter Desktop to connect to
   tag:
     id: type
     name: Type

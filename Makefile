@@ -15,7 +15,7 @@ clean:
 	rm -f image.tar
 	rm -f specter-desktop.s9pk
 
-specter-desktop.s9pk: manifest.yaml assets/compat/* image.tar docs/instructions.md $(ASSET_PATHS)
+specter-desktop.s9pk: manifest.yaml assets/compat/* image.tar icon.png docs/instructions.md $(ASSET_PATHS)
 	embassy-sdk pack
 
 image.tar: Dockerfile docker_entrypoint.sh assets/utils/*
