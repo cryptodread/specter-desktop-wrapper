@@ -1,7 +1,7 @@
 id: lightning-terminal 
 title: Lightning Terminal
 version: 0.6.7.1
-release-notes: Upgrade to EmbassyOS v0.3.0
+release-notes: Upgrade to EmbassyOS v0.3.0.3
 license: mit
 wrapper-repo: "https://github.com/Start9Labs/lightning-terminal-wrapper"
 upstream-repo: "https://github.com/lightninglabs/lightning-terminal"
@@ -23,6 +23,7 @@ main:
   args: []
   mounts:
     lnd: /mnt/lnd
+    compat: /mnt/assets
     main: /root
   io-format: yaml
 health-checks:
@@ -35,7 +36,48 @@ health-checks:
     args: []
     io-format: json
     inject: true
-config: ~
+config:
+  get:
+    type: docker
+    image: compat
+    system: true
+    entrypoint: compat
+    args:
+      - config
+      - get
+      - /root
+      - /mnt/assets/config_spec.yaml
+    mounts:
+      main: /root
+      compat: /mnt/assets
+    io-format: yaml
+  set:
+    type: docker
+    image: compat
+    system: true
+    entrypoint: compat
+    args:
+      - config
+      - set
+      - lightning-terminal
+      - /root
+      - /mnt/assets/config_rules.yaml
+      - /mnt/assets/dependencies.yaml
+    mounts:
+      main: /root
+      compat: /mnt/assets
+    io-format: yaml
+properties:
+  type: docker
+  image: compat
+  system: true
+  entrypoint: compat
+  args:
+    - properties
+    - /root
+  mounts:
+    main: /root
+  io-format: yaml
 volumes:
   main:
     type: data
@@ -48,7 +90,7 @@ volumes:
     package-id: lnd
     volume-id: main
     path: "/public"
-    readonly: true
+    readonly: false
 interfaces:
   main:
     name: Lightning Terminal Web Interface
@@ -71,6 +113,84 @@ dependencies:
     requirement:
       type: required
     config: ~
+  bitcoind:
+    version: ">=0.21.1.2 <=23.0.0"
+    requirement:
+      type: "opt-out"
+      how: Can alternatively configure proxy or bitcoin core  node.
+    description: Used to subscribe to new block events from a full archival node.
+    config:
+      check: 
+        type: docker
+        image: compat
+        system: true
+        entrypoint: compat
+        args:
+          - dependency
+          - check
+          - "lightning-terminal"
+          - bitcoind
+          - /root
+          - "/mnt/assets/bitcoind_config_rules.yaml"
+        mounts:
+          compat: /mnt/assets
+          main: /root
+        io-format: yaml
+      auto-configure:
+        type: docker
+        image: compat
+        system: true
+        entrypoint: compat
+        args:
+          - dependency
+          - "auto-configure"
+          - "lightning-terminal"
+          - bitcoind
+          - /root
+          - "/mnt/assets/bitcoind_config_rules.yaml"
+        mounts:
+          compat: /mnt/assets
+          main: /root
+        io-format: yaml
+  btc-rpc-proxy:
+    version: ">=0.3.2.1 <0.4.0"
+    requirement:
+      type: "opt-in"
+      how: Can alternatively configure proxy or bitcoin core  node.
+    description: Used for RPC permissioning.
+    config:
+      check:
+        type: docker
+        image: compat
+        system: true
+        entrypoint: compat
+        args:
+          - dependency
+          - check
+          - lightning-terminal
+          - "btc-rpc-proxy"
+          - /root
+          - "/mnt/assets/btc-rpc-proxy_config_rules.yaml"
+        mounts:
+          main: /root
+          compat: /mnt/assets
+        io-format: yaml
+      auto-configure:
+        type: docker
+        image: compat
+        system: true
+        entrypoint: compat
+        args:
+          - dependency
+          - "auto-configure"
+          - lightning-terminal
+          - "btc-rpc-proxy"
+          - /root
+          - "/mnt/assets/btc-rpc-proxy_config_rules.yaml"
+        mounts:
+          main: /root
+          compat: /mnt/assets
+        io-format: yaml
 backup:
   create:
     type: docker

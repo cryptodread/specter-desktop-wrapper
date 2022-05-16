@@ -1,6 +1,10 @@
 # Wrapper for Lightning Terminal
 
-`Lightning Terminal` is a simple, minimal project to serve as a template for creating an app for the Embassy.
+`Lightning Terminal (LiT)` is a browser-based interface for managing channel liquidity. This .s9pk wrapper will allow you to run LiT on your Embassy.
+
+## Embassy Service Pre-Requisites: 
+
+- [lnd](https://github.com/Start9Labs/lnd-wrapper)
 
 ## Dependencies
 

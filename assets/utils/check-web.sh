@@ -1,7 +1,7 @@
 #!/bin/bash
 
 DURATION=$(</dev/stdin)
-if (($DURATION <= 10000)); then
+if (($DURATION <= 5500)); then
     exit 60
 else
     if curl --silent --fail lightning-terminal.embassy:8443 &>/dev/null; then
