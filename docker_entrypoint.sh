@@ -6,6 +6,7 @@ _term() {
 }
 # Setting variables
 echo "Configuring Specter Desktop..."
+export BTC_RPC_PROTOCOL=http
 export BTC_RPC_TYPE="$(yq e '.bitcoind.type' /root/start9/config.yaml)"
 export BTC_RPC_USER="$(yq e '.bitcoind.user' /root/start9/config.yaml)"
 export BTC_RPC_PASSWORD="$(yq e '.bitcoind.password' /root/start9/config.yaml)"
