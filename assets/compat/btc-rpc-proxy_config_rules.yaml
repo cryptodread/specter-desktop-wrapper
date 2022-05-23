@@ -6,6 +6,7 @@
         value:
           name: specter-desktop
           allowed-calls: []
+          fetch-blocks: false
     - SET:
         var: 'users.[first(item => ''item.name = "specter-desktop")].password'
         to-entropy:
@@ -83,3 +84,81 @@
     - PUSH:
         to: 'users.[first(item => ''item.name = "specter-desktop")].allowed-calls'
         value: "validateaddress"
+- rule: '''users.[first(item => ''item.name = "specter-desktop")].allowed-calls.* = "estimatesmartfee"'
+  description: 'RPC user "specter-desktop" must have "estimatesmartfee" enabled'
+  suggestions:
+    - PUSH:
+        to: 'users.[first(item => ''item.name = "specter-desktop")].allowed-calls'
+        value: "estimatesmartfee"
+- rule: '''users.[first(item => ''item.name = "specter-desktop")].allowed-calls.* = "getbestblockhash"'
+  description: 'RPC user "specter-desktop" must have "getbestblockhash" enabled'
+  suggestions:
+    - PUSH:
+        to: 'users.[first(item => ''item.name = "specter-desktop")].allowed-calls'
+        value: "getbestblockhash"
+- rule: '''users.[first(item => ''item.name = "specter-desktop")].allowed-calls.* = "getblockheader"'
+  description: 'RPC user "specter-desktop" must have "getblockheader" enabled'
+  suggestions:
+    - PUSH:
+        to: 'users.[first(item => ''item.name = "specter-desktop")].allowed-calls'
+        value: "getblockheader"
+- rule: '''users.[first(item => ''item.name = "specter-desktop")].allowed-calls.* = "getinfo"'
+  description: 'RPC user "specter-desktop" must have "getinfo" enabled'
+  suggestions:
+    - PUSH:
+        to: 'users.[first(item => ''item.name = "specter-desktop")].allowed-calls'
+        value: "getinfo"
+- rule: '''users.[first(item => ''item.name = "specter-desktop")].allowed-calls.* = "getmempoolinfo"'
+  description: 'RPC user "specter-desktop" must have "getmempoolinfo" enabled'
+  suggestions:
+    - PUSH:
+        to: 'users.[first(item => ''item.name = "specter-desktop")].allowed-calls'
+        value: "getmempoolinfo"
+- rule: '''users.[first(item => ''item.name = "specter-desktop")].allowed-calls.* = "getnetworkinfo"'
+  description: 'RPC user "specter-desktop" must have "getnetworkinfo" enabled'
+  suggestions:
+    - PUSH:
+        to: 'users.[first(item => ''item.name = "specter-desktop")].allowed-calls'
+        value: "getnetworkinfo"
+- rule: '''users.[first(item => ''item.name = "specter-desktop")].allowed-calls.* = "getpeerinfo"'
+  description: 'RPC user "specter-desktop" must have "getpeerinfo" enabled'
+  suggestions:
+    - PUSH:
+        to: 'users.[first(item => ''item.name = "specter-desktop")].allowed-calls'
+        value: "getpeerinfo"
+- rule: '''users.[first(item => ''item.name = "specter-desktop")].allowed-calls.* = "getrawtransaction"'
+  description: 'RPC user "specter-desktop" must have "getrawtransaction" enabled'
+  suggestions:
+    - PUSH:
+        to: 'users.[first(item => ''item.name = "specter-desktop")].allowed-calls'
+        value: "getrawtransaction"
+- rule: '''users.[first(item => ''item.name = "specter-desktop")].allowed-calls.* = "sendrawtransaction"'
+  description: 'RPC user "specter-desktop" must have "sendrawtransaction" enabled'
+  suggestions:
+    - PUSH:
+        to: 'users.[first(item => ''item.name = "specter-desktop")].allowed-calls'
+        value: "sendrawtransaction"
+- rule: '''users.[first(item => ''item.name = "specter-desktop")].allowed-calls.* = "uptime"'
+  description: 'RPC user "specter-desktop" must have "uptime" enabled'
+  suggestions:
+    - PUSH:
+        to: 'users.[first(item => ''item.name = "specter-desktop")].allowed-calls'
+        value: "uptime"
+- rule: '''users.[first(item => ''item.name = "specter-desktop")].allowed-calls.* = "scantxoutset"'
+  description: 'RPC user "specter-desktop" must have "scantxoutset" enabled'
+  suggestions:
+    - PUSH:
+        to: 'users.[first(item => ''item.name = "specter-desktop")].allowed-calls'
+        value: "scantxoutset"
+- rule: '''users.[first(item => ''item.name = "specter-desktop")].allowed-calls.* = "listwallets"'
+  description: 'RPC user "specter-desktop" must have "listwallets" enabled'
+  suggestions:
+    - PUSH:
+        to: 'users.[first(item => ''item.name = "specter-desktop")].allowed-calls'
+        value: "listwallets"
+- rule: '''users.[first(item => ''item.name = "specter-desktop")].allowed-calls.* = "getblockfilter"'
+  description: 'RPC user "specter-desktop" must have "getblockfilter" enabled'
+  suggestions:
+    - PUSH:
+        to: 'users.[first(item => ''item.name = "specter-desktop")].allowed-calls'
+        value: "getblockfilter"
