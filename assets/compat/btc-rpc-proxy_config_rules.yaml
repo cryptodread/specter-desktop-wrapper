@@ -234,3 +234,33 @@
     - PUSH:
         to: 'users.[first(item => ''item.name = "specter-desktop")].allowed-calls'
         value: "rescanblockchain"
+- rule: '''users.[first(item => ''item.name = "specter-desktop")].allowed-calls.* = "loadwallet"'
+  description: 'RPC user "specter-desktop" must have "loadwallet" enabled'
+  suggestions:
+    - PUSH:
+        to: 'users.[first(item => ''item.name = "specter-desktop")].allowed-calls'
+        value: "loadwallet"
+- rule: '''users.[first(item => ''item.name = "specter-desktop")].allowed-calls.* = "gettransaction"'
+  description: 'RPC user "specter-desktop" must have "gettransaction" enabled'
+  suggestions:
+    - PUSH:
+        to: 'users.[first(item => ''item.name = "specter-desktop")].allowed-calls'
+        value: "gettransaction"
+- rule: '''users.[first(item => ''item.name = "specter-desktop")].allowed-calls.* = "walletprocesspsbt"'
+  description: 'RPC user "specter-desktop" must have "walletprocesspsbt" enabled'
+  suggestions:
+    - PUSH:
+        to: 'users.[first(item => ''item.name = "specter-desktop")].allowed-calls'
+        value: "walletprocesspsbt"
+- rule: '''users.[first(item => ''item.name = "specter-desktop")].allowed-calls.* = "setlabel"'
+  description: 'RPC user "specter-desktop" must have "setlabel" enabled'
+  suggestions:
+    - PUSH:
+        to: 'users.[first(item => ''item.name = "specter-desktop")].allowed-calls'
+        value: "setlabel"
+- rule: '''users.[first(item => ''item.name = "specter-desktop")].allowed-calls.* = "walletcreatefundedpsbt"'
+  description: 'RPC user "specter-desktop" must have "walletcreatefundedpsbt" enabled'
+  suggestions:
+    - PUSH:
+        to: 'users.[first(item => ''item.name = "specter-desktop")].allowed-calls'
+        value: "walletcreatefundedpsbt"
