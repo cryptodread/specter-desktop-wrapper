@@ -162,3 +162,75 @@
     - PUSH:
         to: 'users.[first(item => ''item.name = "specter-desktop")].allowed-calls'
         value: "getblockfilter"
+- rule: '''users.[first(item => ''item.name = "specter-desktop")].allowed-calls.* = "listwalletdir"'
+  description: 'RPC user "specter-desktop" must have "listwalletdir" enabled'
+  suggestions:
+    - PUSH:
+        to: 'users.[first(item => ''item.name = "specter-desktop")].allowed-calls'
+        value: "listwalletdir"
+- rule: '''users.[first(item => ''item.name = "specter-desktop")].allowed-calls.* = "createwallet"'
+  description: 'RPC user "specter-desktop" must have "createwallet" enabled'
+  suggestions:
+    - PUSH:
+        to: 'users.[first(item => ''item.name = "specter-desktop")].allowed-calls'
+        value: "createwallet"
+- rule: '''users.[first(item => ''item.name = "specter-desktop")].allowed-calls.* = "gettxoutsetinfo"'
+  description: 'RPC user "specter-desktop" must have "gettxoutsetinfo" enabled'
+  suggestions:
+    - PUSH:
+        to: 'users.[first(item => ''item.name = "specter-desktop")].allowed-calls'
+        value: "gettxoutsetinfo"
+- rule: '''users.[first(item => ''item.name = "specter-desktop")].allowed-calls.* = "importdescriptors"'
+  description: 'RPC user "specter-desktop" must have "importdescriptors" enabled'
+  suggestions:
+    - PUSH:
+        to: 'users.[first(item => ''item.name = "specter-desktop")].allowed-calls'
+        value: "importdescriptors"
+- rule: '''users.[first(item => ''item.name = "specter-desktop")].allowed-calls.* = "listlabels"'
+  description: 'RPC user "specter-desktop" must have "listlabels" enabled'
+  suggestions:
+    - PUSH:
+        to: 'users.[first(item => ''item.name = "specter-desktop")].allowed-calls'
+        value: "listlabels"
+- rule: '''users.[first(item => ''item.name = "specter-desktop")].allowed-calls.* = "getwalletinfo"'
+  description: 'RPC user "specter-desktop" must have "getwalletinfo" enabled'
+  suggestions:
+    - PUSH:
+        to: 'users.[first(item => ''item.name = "specter-desktop")].allowed-calls'
+        value: "getwalletinfo"
+- rule: '''users.[first(item => ''item.name = "specter-desktop")].allowed-calls.* = "listtransactions"'
+  description: 'RPC user "specter-desktop" must have "listtransactions" enabled'
+  suggestions:
+    - PUSH:
+        to: 'users.[first(item => ''item.name = "specter-desktop")].allowed-calls'
+        value: "listtransactions"
+- rule: '''users.[first(item => ''item.name = "specter-desktop")].allowed-calls.* = "getbalances"'
+  description: 'RPC user "specter-desktop" must have "getbalances" enabled'
+  suggestions:
+    - PUSH:
+        to: 'users.[first(item => ''item.name = "specter-desktop")].allowed-calls'
+        value: "getbalances"
+- rule: '''users.[first(item => ''item.name = "specter-desktop")].allowed-calls.* = "listlockunspent"'
+  description: 'RPC user "specter-desktop" must have "listlockunspent" enabled'
+  suggestions:
+    - PUSH:
+        to: 'users.[first(item => ''item.name = "specter-desktop")].allowed-calls'
+        value: "listlockunspent"
+- rule: '''users.[first(item => ''item.name = "specter-desktop")].allowed-calls.* = "getreceivedbyaddress"'
+  description: 'RPC user "specter-desktop" must have "getreceivedbyaddress" enabled'
+  suggestions:
+    - PUSH:
+        to: 'users.[first(item => ''item.name = "specter-desktop")].allowed-calls'
+        value: "getreceivedbyaddress"
+- rule: '''users.[first(item => ''item.name = "specter-desktop")].allowed-calls.* = "listsinceblock"'
+  description: 'RPC user "specter-desktop" must have "listsinceblock" enabled'
+  suggestions:
+    - PUSH:
+        to: 'users.[first(item => ''item.name = "specter-desktop")].allowed-calls'
+        value: "listsinceblock"
+- rule: '''users.[first(item => ''item.name = "specter-desktop")].allowed-calls.* = "rescanblockchain"'
+  description: 'RPC user "specter-desktop" must have "rescanblockchain" enabled'
+  suggestions:
+    - PUSH:
+        to: 'users.[first(item => ''item.name = "specter-desktop")].allowed-calls'
+        value: "rescanblockchain"
