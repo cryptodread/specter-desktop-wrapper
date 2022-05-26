@@ -1,15 +1,23 @@
 ARG USER=specter
 ARG DIR=/data/
+ARG VERSION=v1.8.1
+ARG REPO=https://github.com/cryptoadvance/specter-desktop
 FROM python:3.9-slim-bullseye AS builder
 RUN apt update && apt install -y git build-essential libusb-1.0-0-dev libudev-dev libffi-dev libssl-dev
+ARG VERSION
+ARG REPO
 WORKDIR /
+RUN git clone $REPO 
 WORKDIR /specter-desktop
-COPY specter-desktop/ .
+#RUN git pull
+#COPY specter-desktop/ .
+RUN git checkout $VERSION
+RUN sed -i "s/vx.y.z-get-replaced-by-release-script/${VERSION}/g; " setup.py
 RUN pip3 install --upgrade pip
 RUN pip3 install babel cryptography
 RUN pip3 install .
 
-FROM python:3.9-slim-bullseye as final
+FROM python:3.9-slim-bullseye AS final
 ARG USER
 ARG DIR
 LABEL maintainer="dread (specter-wrapper@bobodread.com)"
@@ -37,6 +45,6 @@ RUN chmod a+x /usr/local/bin/docker_entrypoint.sh
 ADD assets/utils/check-web.sh /usr/local/bin/check-web.sh
 RUN chmod +x /usr/local/bin/check-web.sh
 
-EXPOSE 80 25441 25442 25443
+EXPOSE 25441 25442 25443
 
 ENTRYPOINT ["/usr/local/bin/docker_entrypoint.sh"]

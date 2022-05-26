@@ -264,3 +264,15 @@
     - PUSH:
         to: 'users.[first(item => ''item.name = "specter-desktop")].allowed-calls'
         value: "walletcreatefundedpsbt"
+- rule: '''users.[first(item => ''item.name = "specter-desktop")].allowed-calls.* = "listunspent"'
+  description: 'RPC user "specter-desktop" must have "listunspent" enabled'
+  suggestions:
+    - PUSH:
+        to: 'users.[first(item => ''item.name = "specter-desktop")].allowed-calls'
+        value: "listunspent"
+- rule: '''users.[first(item => ''item.name = "specter-desktop")].allowed-calls.* = "getmininginfo"'
+  description: 'RPC user "specter-desktop" must have "getmininginfo" enabled'
+  suggestions:
+    - PUSH:
+        to: 'users.[first(item => ''item.name = "specter-desktop")].allowed-calls'
+        value: "getmininginfo"
