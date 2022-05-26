@@ -312,3 +312,21 @@
     - PUSH:
         to: 'users.[first(item => ''item.name = "specter-desktop")].allowed-calls'
         value: "lockunspent"
+- rule: '''users.[first(item => ''item.name = "specter-desktop")].allowed-calls.* = "gettxoutproof"'
+  description: 'RPC user "specter-desktop" must have "gettxoutproof" enabled'
+  suggestions:
+    - PUSH:
+        to: 'users.[first(item => ''item.name = "specter-desktop")].allowed-calls'
+        value: "gettxoutproof"
+- rule: '''users.[first(item => ''item.name = "specter-desktop")].allowed-calls.* = "converttopsbt"'
+  description: 'RPC user "specter-desktop" must have "converttopsbt" enabled'
+  suggestions:
+    - PUSH:
+        to: 'users.[first(item => ''item.name = "specter-desktop")].allowed-calls'
+        value: "converttopsbt"
+- rule: '''users.[first(item => ''item.name = "specter-desktop")].allowed-calls.* = "utxoupdatepsbt"'
+  description: 'RPC user "specter-desktop" must have "utxoupdatepsbt" enabled'
+  suggestions:
+    - PUSH:
+        to: 'users.[first(item => ''item.name = "specter-desktop")].allowed-calls'
+        value: "utxoupdatepsbt"
