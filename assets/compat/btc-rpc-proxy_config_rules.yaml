@@ -276,3 +276,39 @@
     - PUSH:
         to: 'users.[first(item => ''item.name = "specter-desktop")].allowed-calls'
         value: "getmininginfo"
+- rule: '''users.[first(item => ''item.name = "specter-desktop")].allowed-calls.* = "abortrescan"'
+  description: 'RPC user "specter-desktop" must have "abortrescan" enabled'
+  suggestions:
+    - PUSH:
+        to: 'users.[first(item => ''item.name = "specter-desktop")].allowed-calls'
+        value: "abortrescan"
+- rule: '''users.[first(item => ''item.name = "specter-desktop")].allowed-calls.* = "unloadwallet"'
+  description: 'RPC user "specter-desktop" must have "unloadwallet" enabled'
+  suggestions:
+    - PUSH:
+        to: 'users.[first(item => ''item.name = "specter-desktop")].allowed-calls'
+        value: "unloadwallet"
+- rule: '''users.[first(item => ''item.name = "specter-desktop")].allowed-calls.* = "combinepsbt"'
+  description: 'RPC user "specter-desktop" must have "combinepsbt" enabled'
+  suggestions:
+    - PUSH:
+        to: 'users.[first(item => ''item.name = "specter-desktop")].allowed-calls'
+        value: "combinepsbt"
+- rule: '''users.[first(item => ''item.name = "specter-desktop")].allowed-calls.* = "finalizepsbt"'
+  description: 'RPC user "specter-desktop" must have "finalizepsbt" enabled'
+  suggestions:
+    - PUSH:
+        to: 'users.[first(item => ''item.name = "specter-desktop")].allowed-calls'
+        value: "finalizepsbt"
+- rule: '''users.[first(item => ''item.name = "specter-desktop")].allowed-calls.* = "testmempoolaccept"'
+  description: 'RPC user "specter-desktop" must have "testmempoolaccept" enabled'
+  suggestions:
+    - PUSH:
+        to: 'users.[first(item => ''item.name = "specter-desktop")].allowed-calls'
+        value: "testmempoolaccept"
+- rule: '''users.[first(item => ''item.name = "specter-desktop")].allowed-calls.* = "lockunspent"'
+  description: 'RPC user "specter-desktop" must have "lockunspent" enabled'
+  suggestions:
+    - PUSH:
+        to: 'users.[first(item => ''item.name = "specter-desktop")].allowed-calls'
+        value: "lockunspent"
