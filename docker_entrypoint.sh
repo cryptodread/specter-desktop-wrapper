@@ -17,13 +17,7 @@ else
 	export BTC_RPC_HOST="bitcoind.embassy"
 	echo "Running on Bitcoin Core..."
 fi
-echo "export BTC_RPC_PROTOCOL=$BTC_RPC_PROTOCOL" >> /etc/bash.bashrc
-echo "export BTC_RPC_HOST=$BTC_RPC_HOST" >> /etc/bash.bashrc
-echo "export BTC_RPC_USER=$BTC_RPC_USER" >> /etc/bash.bashrc
-echo "export BTC_RPC_PASSWORD=$BTC_RPC_PASSWORD" >> /etc/bash.bashrc
-echo "export BTC_RPC_PORT=8332" >> /etc/bash.bashrc
 echo "Starting Specter Desktop..."
-source /etc/bash.bashrc
 export BTC_RPC_PROTOCOL=$BTC_RPC_PROTOCOL
 export BTC_RPC_HOST=$BTC_RPC_HOST
 export BTC_RPC_USER=$BTC_RPC_USER
