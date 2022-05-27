@@ -1,6 +1,6 @@
 ARG USER=specter
 ARG DIR=/data/
-ARG VERSION=v1.8.1
+ARG VERSION=v1.9.4
 ARG REPO=https://github.com/cryptoadvance/specter-desktop
 FROM python:3.9-slim-bullseye AS builder
 RUN apt update && apt install -y git build-essential libusb-1.0-0-dev libudev-dev libffi-dev libssl-dev
